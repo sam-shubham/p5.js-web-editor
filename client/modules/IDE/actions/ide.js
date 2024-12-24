@@ -91,6 +91,13 @@ export function closeUploadFileModal() {
   };
 }
 
+export function initSidebarUpload(parentId) {
+  return {
+    type: ActionTypes.INITIALIZE_SIDEBAR_UPLOAD,
+    parentId
+  };
+}
+
 export function expandSidebar() {
   return {
     type: ActionTypes.EXPAND_SIDEBAR

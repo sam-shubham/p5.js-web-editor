@@ -16,6 +16,7 @@ import { getAuthenticated, selectCanEditSketch } from '../selectors/users';
 import ConnectedFileNode from './FileNode';
 import { PlusIcon } from '../../../common/icons';
 import { FileDrawer } from './Editor/MobileEditor';
+import SidebarFileDragDropUploadWrapper from './SidebarFileDragDropUploadWrapper';
 
 // TODO: use a generic Dropdown UI component
 
@@ -130,7 +131,9 @@ export default function SideBar() {
             </ul>
           </div>
         </header>
-        <ConnectedFileNode id={rootFile.id} canEdit={canEditProject} />
+        <SidebarFileDragDropUploadWrapper>
+          <ConnectedFileNode id={rootFile.id} canEdit={canEditProject} />
+        </SidebarFileDragDropUploadWrapper>
       </section>
     </FileDrawer>
   );

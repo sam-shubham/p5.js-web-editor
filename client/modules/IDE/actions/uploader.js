@@ -22,10 +22,12 @@ export async function dropzoneAcceptCallback(userId, file, done) {
       file.content = await file.text();
       // Make it an error so that it won't be sent to S3, but style as a success.
       done('Uploading plaintext file locally.');
-      file.previewElement.classList.remove('dz-error');
-      file.previewElement.classList.add('dz-success');
-      file.previewElement.classList.add('dz-processing');
-      file.previewElement.querySelector('.dz-upload').style.width = '100%';
+      if (file.previewElement) {
+        file.previewElement.classList.remove('dz-error');
+        file.previewElement.classList.add('dz-success');
+        file.previewElement.classList.add('dz-processing');
+        file.previewElement.querySelector('.dz-upload').style.width = '100%';
+      }
     } catch (error) {
       done(`Failed to download file ${file.name}: ${error}`);
       console.warn(file);

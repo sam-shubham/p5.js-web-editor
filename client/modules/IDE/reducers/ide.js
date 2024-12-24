@@ -122,6 +122,8 @@ const ide = (state = initialState, action) => {
       });
     case ActionTypes.CLOSE_UPLOAD_FILE_MODAL:
       return Object.assign({}, state, { uploadFileModalVisible: false });
+    case ActionTypes.INITIALIZE_SIDEBAR_UPLOAD:
+      return Object.assign({}, state, { parentId: action.parentId });
     default:
       return state;
   }
